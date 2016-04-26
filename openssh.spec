@@ -9,10 +9,10 @@
 %define aversion 1.2.4.1
 
 # Do we want to disable building of x11-askpass? (1=yes 0=no)
-%define no_x11_askpass 0
+%define no_x11_askpass 1
 
 # Do we want to disable building of gnome-askpass? (1=yes 0=no)
-%define no_gnome_askpass 0
+%define no_gnome_askpass 1
 
 # Do we want to link against a static libcrypto? (1=yes 0=no)
 %define static_libcrypto 0
@@ -31,6 +31,8 @@
 
 # Reserve options to override askpass settings with:
 # rpm -ba|--rebuild --define 'skip_xxx 1'
+%define skip_x11_askpass 1
+%define skip_gnome_askpass 1
 %{?skip_x11_askpass:%define no_x11_askpass 1}
 %{?skip_gnome_askpass:%define no_gnome_askpass 1}
 
